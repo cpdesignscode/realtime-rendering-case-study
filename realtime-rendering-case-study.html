@@ -36,7 +36,8 @@
   /* nav */
   .nav{position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:18px 32px; background:rgba(245,241,234,0); border-bottom:1px solid transparent; transition:background .35s ease, border-color .35s ease, backdrop-filter .35s ease;}
   .nav.scrolled{background:rgba(245,241,234,0.86); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line-light);}
-  .nav-brand{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--grey-900); transition:color .35s ease;}
+  .nav-brand{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--grey-900); transition:color .35s ease; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:62%;}
+  @media (max-width:680px){ .nav{padding:14px 16px;} .nav-brand{font-size:9.5px; max-width:56%;} .nav-back{font-size:11px; padding:6px 11px;} }
   .nav-back{font-family:var(--mono); font-size:12px; letter-spacing:.04em; text-decoration:none; color:rgba(18,25,51,0.7); border:1px solid rgba(18,25,51,0.25); padding:7px 14px; border-radius:100px; transition:color .2s, border-color .2s, background .35s ease;}
   .nav.scrolled .nav-back{color:var(--grey-500); border-color:var(--line-light);}
   .nav-back:hover{color:var(--accent-deep); border-color:var(--accent-deep);}
@@ -128,7 +129,8 @@
   .section-ink .tag{border-color:var(--line-dark); color:var(--cream);}
 
   /* comparison table */
-  table.compare{width:100%; max-width:980px; margin:32px auto 0; border-collapse:collapse; font-size:14.5px;}
+  .table-scroll{max-width:980px; margin:32px auto 0; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  table.compare{width:100%; min-width:560px; margin:0; border-collapse:collapse; font-size:14.5px;}
   table.compare th, table.compare td{text-align:left; padding:16px 18px; border:1px solid var(--line-light); vertical-align:top;}
   table.compare th{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.08em; background:rgba(18,25,51,0.03);}
   .section-ink table.compare th{background:rgba(245,241,234,0.05); border-color:var(--line-dark);}
@@ -170,7 +172,7 @@
   <div class="hero-inner">
     <div class="eyebrow">MSc Dissertation / Real-Time Rendering / Virtual Production</div>
     <h1 class="title">The Integration of Real-Time Rendering Technologies</h1>
-    <p class="hero-sub">A 12,796-word MSc dissertation and a working Blender to Unreal Engine to TouchDesigner pipeline, built on the same real-time rendering technology now driving the industry's shift to virtual production and LED-volume filmmaking, the approach behind productions like The Mandalorian and now standard on the majority of major studio shoots.</p>
+    <p class="hero-sub">An MSc dissertation and a working Blender to Unreal Engine to TouchDesigner pipeline, built on the same real-time rendering technology now driving the industry's shift to virtual production and LED-volume filmmaking, the approach behind productions like The Mandalorian and now standard on the majority of major studio shoots.</p>
 
     <div class="meta-strip">
       <div class="meta-item"><div class="meta-label">Institution</div><div class="meta-value">Brunel University<br>London</div></div>
@@ -182,7 +184,7 @@
   </div>
 
   <div class="honesty-note">
-    <strong>A note on this project.</strong> This is an MSc dissertation completed at Brunel University London, paired with a real, working digital artefact rather than a purely theoretical study. The full 12,796-word dissertation is embedded below in the viewer, exactly as submitted, alongside the original committee pitch and the research poster.
+    <strong>A note on this project.</strong> This is an MSc dissertation completed at Brunel University London, paired with a real, working digital artefact rather than a purely theoretical study. The original committee pitch and research poster are shown below, and the full case study follows.
   </div>
 </header>
 
@@ -408,12 +410,14 @@
     <p>Placing both renders next to each other makes the trade-off concrete. Traditional rendering still wins on raw fidelity in complex scenes, real-time wins on everything that depends on speed, adaptability and interaction.</p>
     <div class="film-player"><video controls playsinline preload="metadata" poster="media/image-030.jpg"><source src="media/video-004.mp4" type="video/mp4"></video></div>
     <figcaption style="margin-top:16px;">Direct comparison between traditional and real-time rendering</figcaption>
+    <div class="table-scroll">
     <table class="compare">
       <tr><th>Aspect</th><th>Traditional rendering</th><th>Real-time rendering</th></tr>
       <tr><td><strong>Advantages</strong></td><td>High visual fidelity, suitable for film-quality output; greater control over intricate detail</td><td>Faster workflow and production cycles; enhanced interactivity and adaptability; superior for virtual production, gaming and live events</td></tr>
       <tr><td><strong>Disadvantages</strong></td><td>Time-consuming, often hours or days per render; a sequential process where every change needs a re-render</td><td>Requires high-performance hardware for complex scenes; quality can vary depending on optimisation and available hardware</td></tr>
       <tr><td><strong>Best suited for</strong></td><td>High-end film production, advertisements, static visuals</td><td>Virtual production, gaming, VR and AR, interactive media</td></tr>
     </table>
+    </div>
   </div>
 </section>
 
@@ -476,7 +480,7 @@
       <li><strong>Unreal Engine at a technical level.</strong> Wrote and wired Blueprints for audio-reactive geometry, lighting and particle systems responding to live MIDI input, the same class of work behind LED-volume virtual production.</li>
       <li><strong>3D production craft.</strong> Full asset pipeline in Blender, modelling, texturing, rigging, keyframe and motion-capture animation, volumetric lighting and camera work.</li>
       <li><strong>Real-time interactive systems.</strong> TouchDesigner node networks turning live audio into particle behaviour, texture and colour, in real time, not pre-baked.</li>
-      <li><strong>Independent research at MSc level.</strong> A 12,796-word dissertation, systematic literature review, defined methodology, and a defended research contribution, not just a build.</li>
+      <li><strong>Independent research at MSc level.</strong> A full dissertation, systematic literature review, defined methodology, and a defended research contribution, not just a build.</li>
       <li><strong>Communicating technical work clearly.</strong> Committee pitch, research poster and final dissertation all aimed at getting a non-trivial idea approved, funded and understood by an audience that didn't build it.</li>
     </ul>
   </div>
